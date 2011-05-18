@@ -14,8 +14,7 @@ class TodosController < ApplicationController
   end
 
   def search
-    @todos = @user.todos.where("todos.title like ?" , "%#{params[:q]}%")
-                        .paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @todos = @user.todos.search(params[:q]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     
   end
   

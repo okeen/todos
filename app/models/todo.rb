@@ -11,7 +11,13 @@ class Todo < ActiveRecord::Base
   @@per_page = 10
 
   scope :unfinished, where(:is_finished => false)
-  
+
+  class << self
+    def search(title)
+      where("todos.title like ?" , "%#{title}%")
+    end
+  end
+
   private
 
   def check_todo_is_finished
