@@ -1,0 +1,18 @@
+<% if @todo.errors.any? -%>
+  $("#todo_status").html("TODO item creation error");
+  $("#todo_error_explanation").html("<%= todo_error_message(@todo)%>");
+  $("#todo_error_explanation").show(300);
+  $("#notice").show(300);
+<% else -%>
+  $("#todo_status").html("TODO item added");
+  $("#todo_error_explanation").hide(300);
+  $("#todo_status").show(300);
+  add_new_todo_element(
+	{
+		title: '<%= @todo.title%>',
+		expected_duration: <%= @todo.expected_duration%>,
+		due_date: '<%= @todo.due_date%>',
+		isFinished: <%= @todo.is_finished%>
+	}).highlight();
+<% end -%>
+

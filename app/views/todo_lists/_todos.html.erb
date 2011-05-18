@@ -1,0 +1,19 @@
+<div id="todos">
+  <table id="todos_table">
+    <tr>
+      <th>Title</th>
+      <th>Estimated duration</th>
+      <th>Due date</th>
+      <th>finished?</th>
+    </tr>
+    <% todo_list.todos.each do |todo|%>
+      <tr class="todo_item<%=' todo_finished' if todo.is_finished?%>">
+        <td><%=todo.title%></td>
+        <td><%=todo.expected_duration%></td>
+        <td><%=todo.due_date%></td>
+        <td><%=todo_is_finished_checkbox(todo)%></td>
+        <td><%=delete_todo_link(todo)%></td>
+      </tr>
+    <%end%>
+  </table>
+</div>

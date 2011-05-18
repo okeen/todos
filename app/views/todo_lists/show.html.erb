@@ -1,0 +1,28 @@
+<div class="content">
+  <h1>
+    <%= @todo_list.title %>, items: <%= @todo_list.todos.count %>
+  </h1>
+<%= render :partial =>'todos', :locals => {:todo_list => @todo_list}%>
+  <div id="new_todo">
+    <%=form_for :todo , :url => todo_list_todos_path(@todo_list, :format => 'js'), :remote => true do |f| %>
+      <%= f.text_field :title%>
+      <%= f.label :title%><br />
+
+      <%= f.text_field :expected_duration%>
+      <%= f.label :expected_duration%><br />
+
+      <%= f.datetime_select :due_date%>
+      <%= f.label :due_date%><br />
+
+      <%= f.check_box :is_finished%>
+      <%= f.label :is_finished%><br />
+
+      <%=f.submit("Add TODO")%>
+
+    <%end%>
+  </div>
+
+
+  <%= link_to 'Edit', edit_user_todo_list_path(@user,@todo_list) %> |
+  <%= link_to 'Back', user_todo_lists_path(@user) %>
+</div>

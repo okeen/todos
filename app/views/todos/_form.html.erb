@@ -1,0 +1,37 @@
+<%= form_for :todo, :url => todo_list_todos_path(@todo_list) do |f| %>
+  <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :todo_list %><br />
+    <%= f.text_field :todo_list %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.datetime_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :is_finished %><br />
+    <%= f.check_box :is_finished %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_duration %><br />
+    <%= f.text_field :expected_duration %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

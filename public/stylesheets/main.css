@@ -1,0 +1,129 @@
+/* CSS Document */
+
+body {
+	background-image:url(images/backgrounds/body.jpg);
+	background-position:top;
+	background-repeat:repeat-x;
+	background-color:#FFFFFF;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.64em;
+	color:#999999;
+	margin:0;
+
+}
+a {
+	color:#CC6666;
+}
+a:hover {
+	border-bottom:1px solid
+}
+li {
+	list-style-image:url(images/backgrounds/bullet.gif);
+}
+h1,h2,h3 {
+	color:#996666;
+	border-bottom:1px dashed #cccccc;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:200%;
+	padding-bottom:3px;
+}
+#container {
+	width:580px;
+	padding:10px;
+	padding-top:0;
+	margin:0 auto 0 auto;
+	background-image:url(images/backgrounds/main.jpg);
+	background-repeat:repeat-y;
+}
+#topcontainer {
+	width:100%;
+	clear:both;
+}
+#website_title {
+	background-color:#990000;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	padding:10px;
+	width:45%;
+	float:left;
+	font-family:Arial Narrow, Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-size:36px;
+	height:120px;
+	font-weight:bold;
+	border:1px solid #000000;
+	
+}
+#menu {
+	background-color:#dddddd;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	padding:10px;
+	width:45%;
+	float:right;
+	height:120px;
+	margin-bottom:20px;
+}
+#menu a {
+	float:left;
+	width:250px;
+	background-image:url(images/backgrounds/menua.jpg);
+	padding:4px;
+	border-left:1px solid #ffffff;
+	border-top:1px solid #ffffff;
+	border-right:1px solid #999999;
+	border-bottom:1px solid #999999;
+	margin-bottom:1px;
+	color:#000000;
+	text-decoration:none;
+	font-weight:bold;
+}
+#menu a:hover {
+	border-left:1px solid #999999;
+	border-top:1px solid #999999;
+	border-right:1px solid #ffffff;
+	border-bottom:1px solid #ffffff;
+	background-image:url(images/backgrounds/menuahover.jpg);
+	background-position:bottom;
+}
+.content {
+	clear:both;
+	width:560px;
+	padding:5px;
+	background-color:#ffffff;
+	border:1px solid #cccccc;
+	border-right:1px solid #eeeeee;
+	border-bottom:1px solid #eeeeee;
+	margin-right:200px;
+	margin:0 auto 0 auto;
+	line-height:20px;
+	margin-bottom:10px;
+}
+.footercontent {
+	clear:both;
+	width:560px;
+	padding:5px;
+	background-color:#dddddd;
+	border:1px solid #cccccc;
+	margin-right:200px;
+	margin:0 auto 0 auto;
+	line-height:20px;
+	margin-bottom:10px;
+}
+.footercontent a {
+	font-weight:bold;
+	text-decoration:none;
+	color:#999999;
+}
+.footercontent a:hover {
+	text-decoration:underline;
+}
+
+#footer {
+	width:600px;
+	margin:0 auto 0 auto;
+	background-image:url(images/backgrounds/footer.jpg);
+	height:20px;
+}

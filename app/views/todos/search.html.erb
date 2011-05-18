@@ -1,0 +1,31 @@
+<h1><%=@todos.total_entries%> result(s) found:</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Todo list</th>
+    <th>Due date</th>
+    <th>Is finished</th>
+    <th>Expected duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @todos.each do |todo| %>
+  <tr class="todo_item">
+    <td><%= todo.title %></td>
+    <td><%= todo.todo_list.title %></td>
+    <td><%= todo.due_date %></td>
+    <td><%= todo.is_finished %></td>
+    <td><%= todo.expected_duration %></td>
+    <td><%= link_to 'Destroy', todo_list_todo_path(todo.todo_list, todo), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= page_entries_info(@todos) %> 
+
+<%= previous_results_link(@todos) unless @todos.current_page == 1 %>
+<%= next_results_link(@todos) unless @todos.current_page == @todos.total_pages %>

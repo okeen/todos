@@ -1,0 +1,7 @@
+<fieldset id="search">
+<legend>Search: </legend>
+	<%= form_tag(search_path :method => 'get') do |f| %> 
+		<%=	text_field_tag "q" %>
+    	<%=submit_tag("Search")%>
+	<%end%>
+</fieldset>

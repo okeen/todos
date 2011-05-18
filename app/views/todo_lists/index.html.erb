@@ -1,0 +1,31 @@
+<h1>My TODO Lists:</h1>
+<p id="remaining_work_estimation">
+  <%=remaining_todos_work_estimation(@user)%>
+</p>
+<div id="todo_lists_list">
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Items</th>
+    <th>Complete</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @todo_lists.each do |todo| %>
+  <tr>
+    <td><%= todo.title %></td>
+    <td><%= todo.todos.count %></td>
+    <td><%= todo.todos.unfinished.count %></td>
+
+    <td><%= link_to 'Show', user_todo_list_path(@user, todo) %></td>
+    <td><%= link_to 'Edit', edit_user_todo_list_path(@user, todo) %></td>
+    <td><%= link_to 'Destroy', user_todo_list_path(@user, todo), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Todo', new_user_todo_list_path(@user) %>
