@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       if @user and @user.create_session
         session[:user_id] = @user.id
         flash[:notice] = "Welcome #{@user.email}"
-        format.html { redirect_to(home_path) }
+        format.html { redirect_to(user_todo_lists_path(@user)) }
         format.xml  { render :xml => @session, :status => :created, :location => @session }
       else
         @session = Session.new

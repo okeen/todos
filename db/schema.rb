@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110514180641) do
     t.string   "title"
     t.integer  "todo_list_id"
     t.datetime "due_date"
-    t.boolean  "is_finished"
+    t.boolean  "is_finished",       :default => false
     t.integer  "expected_duration"
     t.datetime "created_at"
     t.datetime "updated_at"

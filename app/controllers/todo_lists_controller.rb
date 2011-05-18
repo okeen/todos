@@ -38,7 +38,7 @@ class TodoListsController < ApplicationController
 
   # GET /todos/1/edit
   def edit
-    @todo_list= @todo_lists.find(params[:id]).first
+    @todo_list= @todo_lists.find(params[:id])
   end
 
   # POST /todos
@@ -62,11 +62,11 @@ class TodoListsController < ApplicationController
   # PUT /todos/1
   # PUT /todos/1.xml
   def update
-    @todo_list= @todo_lists.find(params[:id]).first
+    @todo_list= @todo_lists.find(params[:id])
 
     respond_to do |format|
       if @todo_list.update_attributes(params[:todo_list])
-        format.html { redirect_to(user_todo_list_path(@user, @todo_list), :notice => 'Todo List was successfully updated.') }
+        format.html { redirect_to(user_todo_lists_path(@user), :notice => 'Todo List was successfully updated.') }
         format.xml  { head :ok }
         format.json { render :json => @todo_list}
       else
@@ -80,7 +80,7 @@ class TodoListsController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.xml
   def destroy
-    @todo_list= @todo_lists.find(params[:id]).first
+    @todo_list= @todo_lists.find(params[:id])
     @todo_list.destroy
 
     respond_to do |format|
@@ -93,11 +93,14 @@ class TodoListsController < ApplicationController
   private 
   
   def logged_in_as_owner_required
-    login_required
-    if params[:user_id].to_i != current_user.id
-      respond_to do |format|
-         format.html { render :text => "<h1>These lists are private</h1>" }
-         format.xml  { head :forbidden }
+    if current_user.blank? 
+      redirect_to(sign_in_path, :notice => "You need to login to manage TODO lists")
+    else
+      if params[:user_id].to_i != current_user.id
+        respond_to do |format|
+           format.html { render :text => "<h1>These lists are private</h1>" }
+           format.xml  { head :forbidden }
+        end
       end
     end
   end

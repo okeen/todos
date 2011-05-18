@@ -10,7 +10,7 @@ Feature: Todo list privacy
 	And I am not logged in
 	When I go to my todo lists page
     Then I should see no todo lists
-    And I should see "These lists are private"
+    And I should see "You need to login to manage TODO lists"
 
  Scenario: Logged user tries to access his own todo lists
     Given an existing user "user@example.com/secret"

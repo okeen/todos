@@ -3,21 +3,23 @@
     <%= @todo_list.title %>, items: <%= @todo_list.todos.count %>
   </h1>
 <%= render :partial =>'todos', :locals => {:todo_list => @todo_list}%>
-  <div id="new_todo">
+  <div id="new_todo" class="content">
+    <h1>Add new TODO items</h1>
     <%=form_for :todo , :url => todo_list_todos_path(@todo_list, :format => 'js'), :remote => true do |f| %>
-      <%= f.text_field :title%>
-      <%= f.label :title%><br />
+      <%= f.label :title%>
+      <%= f.text_field :title, :size => 35%>
+      
 
-      <%= f.text_field :expected_duration%>
-      <%= f.label :expected_duration%><br />
+      <%= f.label :expected_duration%>
+      <%= f.text_field :expected_duration, :size=>3%><br/>
+      
+      <%= f.label :due_date%>
+      <%= f.datetime_select :due_date%><br/>
+      
 
-      <%= f.datetime_select :due_date%>
-      <%= f.label :due_date%><br />
-
-      <%= f.check_box :is_finished%>
-      <%= f.label :is_finished%><br />
-
-      <%=f.submit("Add TODO")%>
+      <%#= f.check_box :is_finished%>
+      <%#= f.label :is_finished%>
+      <%=f.submit("Add TODO", :class=>'style="display:none"')%><br />
 
     <%end%>
   </div>

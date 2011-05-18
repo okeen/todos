@@ -14,7 +14,7 @@ module ApplicationHelper
     content_tag :div, :id=>'top_container' do 
       content_tag(:div, :id=>'website_title') {"My TODOer"}+
       content_tag(:div, :id=>'menu' ){
-        if user.blank?
+      if user.blank? or user.new_record?
           link_to("Login", sign_in_path)+
           link_to("Sign up", sign_up_path)
         else

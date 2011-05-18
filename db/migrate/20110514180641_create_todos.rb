@@ -4,7 +4,7 @@ class CreateTodos < ActiveRecord::Migration
       t.string :title, :required => true
       t.references :todo_list
       t.datetime :due_date
-      t.boolean :is_finished
+      t.boolean :is_finished, :default => false
       t.integer :expected_duration, :required => true
 
       t.timestamps
